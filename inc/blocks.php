@@ -256,8 +256,8 @@ if (isset($ace['txdetails']))
 ?>
 		<footer>
 			<div style="float: right !important;">
-				<img src="./css/footer.png" height="50" width="50" alt="Merge Logo">
-				<strong>POWERED BY MERGE</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="./css/footer.png" height="50" width="50" alt="Gax Logo">
+				<strong>POWERED BY GAX</strong>&nbsp;&nbsp;&nbsp;&nbsp;
 				<br>
 				<br>
 			</div>

@@ -44,34 +44,43 @@ if (!count($_GET)) echo "<meta http-equiv=\"refresh\" content=\"" . REFRESHTIME 
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	</head>
 	<body style="background-color:<?php echo BACKGROUND_COLOR; ?>;color:<?php echo TEXT_COLOR; ?>">
-		<center><h1><?php echo COINNAME; ?> Block Explorer</h1></center>
-		<center>
-			<table class="table table-bordered" style="table-layout: fixed; width: 95%;">
+		<center><h1>
+			<br>
+			<table style="table-layout: fixed; width: 95%;">
 				<colgroup>
-					<col span="1" style="width: 15%;">
 					<col span="1" style="width: 15%;">
 					<col span="1" style="width: 40%;">
 					<col span="1" style="width: 15%;">
 					<col span="1" style="width: 15%;">
 				</colgroup>
+				<td></td>
+				<td><?php echo COINNAME; ?> Block Explorer</td>
+				<td><img src="./css/logo.png" height="64" width="64" alt="Bumbacoin Logo"></td>
+				<td></td>
+			</table>
+		</h1></center>
+		<center>
+			<table class="table table-bordered" style="table-layout: fixed; width: 95%;">
+				<colgroup>
+					<col span="1" style="width: 20%;">
+					<col span="1" style="width: 20%;">
+					<col span="1" style="width: 20%;">
+					<col span="1" style="width: 20%;">
+					<col span="1" style="width: 20%;">
+				</colgroup>
 				<tbody style="font-size: 9pt">
 					<tr>
 						<td bgcolor="<?php echo COIN_STATS_TABLE_COLOR_1; ?>" style="text-align:center;vertical-align:middle;word-wrap:break-word;"><strong>Connections</strong></td>
 						<td bgcolor="<?php echo COIN_STATS_TABLE_COLOR_1; ?>" style="text-align:center;vertical-align:middle;word-wrap:break-word;"><strong>Version</strong></td>
-						<td rowspan="2" style="text-align:center;vertical-align:middle;word-wrap:break-word;"><img src="./css/logo.png" height="200" width="200" alt="Merge Logo"></td>
 						<td bgcolor="<?php echo COIN_STATS_TABLE_COLOR_1; ?>" style="text-align:center;vertical-align:middle;word-wrap:break-word;"><strong>Total Coins</strong></td>
 						<td bgcolor="<?php echo COIN_STATS_TABLE_COLOR_1; ?>" style="text-align:center;vertical-align:middle;word-wrap:break-word;"><strong>Protocol</strong></td>
+						<td bgcolor="<?php echo COIN_STATS_TABLE_COLOR_1; ?>" colspan="5" style="text-align:center;vertical-align:middle;word-wrap:break-word;"><strong>Total Blocks</strong></td>
 					</tr>
 					<tr>
 						<td bgcolor="<?php echo COIN_STATS_TABLE_COLOR_2; ?>" style="text-align:center;vertical-align:middle;word-wrap:break-word;"><?php echo $ace['num_connections']; ?></td>
 						<td bgcolor="<?php echo COIN_STATS_TABLE_COLOR_2; ?>" style="text-align:center;vertical-align:middle;word-wrap:break-word;"><?php echo $ace['version']; ?></td>
 						<td bgcolor="<?php echo COIN_STATS_TABLE_COLOR_2; ?>" style="text-align:center;vertical-align:middle;word-wrap:break-word;"><?php echo sprintf('%.8f', $ace['moneysupply']); ?></td>
 						<td bgcolor="<?php echo COIN_STATS_TABLE_COLOR_2; ?>" style="text-align:center;vertical-align:middle;word-wrap:break-word;"><?php echo $ace['protocol']; ?></td>
-					</tr>
-					<tr>
-						<td bgcolor="<?php echo COIN_STATS_TABLE_COLOR_1; ?>" colspan="5" style="text-align:center;vertical-align:middle;word-wrap:break-word;"><strong>Total Blocks</strong></td>
-					</tr>
-					<tr>
 						<td bgcolor="<?php echo COIN_STATS_TABLE_COLOR_2; ?>" colspan="5" style="text-align:center;vertical-align:middle;word-wrap:break-word;"><?php echo $ace['num_blocks']; ?></td>
 					</tr>
 				</tbody>
@@ -94,30 +103,36 @@ if (isset($_GET['block_hash']) || isset($_GET['block_height']) || isset($_GET['t
 ?>
 		<center>
 			<h5>
-				<div class="menu_item">
-					<span class="menu_desc">Enter a Block Index / Height</span><br>
-					<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="get">
-						<input type="text" name="block_height" size="40">
-						<input type="submit" value="Jump to Block">
-					</form>
-				</div>
-				<br>
-				<div class="menu_item">
-					<span class="menu_desc">Enter a Block Hash</span><br>
-					<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="get">
-						<input type="text" name="block_hash" size="40">
-						<input type="submit" value="Jump to Block">
-					</form>
-				</div>
-				<br>
-				<div class="menu_item">
-					<span class="menu_desc">Enter a Transaction ID</span><br>
-					<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="get">
-						<input type="text" name="transaction" size="40">
-						<input type="submit" value="Jump to TX">
-					</form>
-				</div>
-			</h5>
+<div class="row" style="font-size: 9pt">
+                        <div class="col-md-1" >
+                        </div>
+                        <div class="col-md-3" >
+                            <span class="menu_desc">Enter a Block Index / Height</span>
+                            <br>
+                            <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="get">
+                                <input type="text" class="form-control" name="block_height" size="40">
+                                <input class="btn btn-sm btn-success mt-1" type="submit" value="Jump to Block">
+                            </form>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="menu_desc">Enter a Block Hash</span>
+                            <br>
+                            <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="get">
+                                <input type="text" class="form-control" name="block_hash" size="40">
+                                <input class="btn btn-sm btn-success  mt-1" type="submit" value="Jump to Block">
+                            </form>
+                        </div>
+                        <div class="col-md-3">
+                            <span class="menu_desc">Enter a Transaction ID</span>
+                            <br>
+                            <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="get">
+                                <input type="text" class="form-control" name="transaction" size="40">
+                                <input class="btn btn-sm btn-success  mt-1" type="submit" value="Jump to TX">
+                            </form>
+                        </div>
+                        <div class="col-md-1" >
+                        </div>
+                    </div>			</h5>
 		</center>
 <?php
 }
